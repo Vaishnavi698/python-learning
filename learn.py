@@ -38,4 +38,22 @@ elif marks >=75:
 elif marks>=50:
     print("Grade C")
 else:
-    print("Fail")              
+    print("Fail")   
+
+
+for i in range(5):
+    print(i)      
+
+for i in range(5):
+    print(i*2)             
+
+for i in range(2,7):
+    print(i)  
+
+for i in range(0,10,2):
+    print(i)       
+
+count = 0
+while count < 5:
+    print(count)
+    count = count+1     
