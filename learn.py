@@ -20,3 +20,22 @@ print(5>3)
 print(5<3)
 print(5<=3)
 print(5>=3)
+
+
+age = 15
+
+if age >=18:
+    print("you are an adult")
+else:
+    print("You are a minor")   
+
+
+marks = 40
+if marks >=90:
+    print("Grade A")
+elif marks >=75:
+    print("Grade B") 
+elif marks>=50:
+    print("Grade C")
+else:
+    print("Fail")              
