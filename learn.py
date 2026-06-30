@@ -56,4 +56,16 @@ for i in range(0,10,2):
 count = 0
 while count < 5:
     print(count)
-    count = count+1     
+    count = count+1  
+
+for i in range(10):
+    if i == 5:
+        break
+    print(i)
+
+for i in range(6):
+    if i ==3:
+        continue
+    print(i)
+
+  
