@@ -107,3 +107,53 @@ print(numbers[2:])
 
 for fruit in fruits:
     print(fruit)
+
+
+#--------Tules---------
+coordinates = (10,20,30)
+print(coordinates)
+print(coordinates[0])
+print(coordinates[1])    
+
+#-----Sets-----
+colors = {"red", "blue", "green" , "red", "blue"}
+print(colors)
+print(len(colors))
+
+# ----checking membership in a set-
+print("red" in colors)
+print("yellow" in colors)
+
+#----------removing duplicates from a list using a set
+numbers = [1,2,2,3,3,3,4]
+unique = list(set(numbers))
+print(unique)
+
+#-------Dictionaries--
+student = {
+    "name" :"Vaishnavi",
+    "age" : 20,
+    "city" : "Delhi"
+}
+
+print(student)
+print(student["name"])
+print(student["age"])
+
+#-----adding a new key-value pair
+student["grade"] = "A"
+print(student)
+# updating an existing value
+student["age"] = 21
+print(student)
+# removing a key-value pair
+del student["city"]
+print(student)
+# checking if a key exists
+print("name" in student)
+print("city" in student)
+
+#-----looping through a dictionary----
+for key in student:
+    print(key, ":", student[key])
+
