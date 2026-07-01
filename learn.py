@@ -71,3 +71,39 @@ for i in range(6):
     if i == 3:
         continue
     print(i)
+
+#-------Lists---------
+fruits = ["apple", "banana", "cherry"]
+print(fruits)
+print(fruits[0])
+print(fruits[1])
+print(fruits[2])    
+
+#adding and removing from a list
+fruits.append("mango")         # adds to the END of the list
+print(fruits)
+
+fruits.remove("banana")           # removes by VALUE (finds and deletes it)
+print(fruits)
+
+print(len(fruits))                 # len() tells you how many items are in the list
+
+
+#----------Negative indexing-counting from the end-------
+
+print(fruits[-1])            #last item
+
+print(fruits[-2])            #second to last item 
+
+#--------------slicing — grabbing a chunk of a list----------
+
+numbers = [10,20,30,40,50]
+print(numbers[1:4])
+print(numbers[:3])
+print(numbers[2:])
+
+
+#----------looping through a list-----
+
+for fruit in fruits:
+    print(fruit)
