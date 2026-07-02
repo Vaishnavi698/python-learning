@@ -157,3 +157,26 @@ print("city" in student)
 for key in student:
     print(key, ":", student[key])
 
+
+# ----- List Comprehensions -----
+numbers = [1, 2, 3, 4, 5]
+
+# traditional way
+squared = []
+for n in numbers:
+    squared.append(n * 2)
+print(squared)
+
+# list comprehension
+squared = [n * 2 for n in numbers]
+print(squared)
+
+# only include even numbers
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+evens = [n for n in numbers if n % 2 == 0]
+print(evens)
+
+# ----- Dictionary Comprehensions -----
+words = ["apple", "banana", "cherry"]
+word_lengths = {word: len(word) for word in words}
+print(word_lengths)
