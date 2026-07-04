@@ -180,3 +180,95 @@ print(evens)
 words = ["apple", "banana", "cherry"]
 word_lengths = {word: len(word) for word in words}
 print(word_lengths)
+
+#-----------Functions-----------
+def greet(name):
+    print("Hello, " + name + "! Welcome.")
+greet("Vaishnavi")
+greet("Rahul")
+greet("Priya")
+
+def add(a, b):
+    return a + b
+result = add(3, 5)
+print(result)
+
+
+# print vs return
+def add_with_print(a, b):
+    print(a + b)        # just displays it, returns nothing
+
+def add_with_return(a, b):
+    return a + b        # sends the value back out
+
+result1 = add_with_print(3, 5)
+result2 = add_with_return(3, 5)
+
+print(result1)
+print(result2)
+
+#--------------Deafult parameters--------
+def greet(name, message="Welcome"):
+    print("Hello, " + name + "! " + message)
+
+greet("Vaishnavi")
+greet("Rahul", "Good morning")
+
+#--------keyword arguements----------
+def describe(name, age, city):
+    print(name + " is " + str(age) + " years old from " + city)
+
+# positional — order matters
+describe("Vaishnavi", 20, "Delhi")
+
+# keyword — order doesn't matter
+describe(city="Delhi", name="Vaishnavi", age=20)
+
+# ----- Variable Scope -----
+x = 100      # global variable — created outside any function
+
+def my_function():
+    y = 50   # local variable — created inside a function
+    print(x) # can see x? YES — functions can read global variables
+    print(y) # can see y? YES — y belongs to this function
+
+my_function()
+print(x)     # can see x? YES — x is global, visible everywhere
+     # can see y? NO — y only exists inside my_function
+
+
+# ----- Lambda Functions -----
+# regular function
+def square(n):
+    return n * n
+
+# same thing as a lambda
+square_lambda = lambda n: n * n
+
+print(square(5))
+print(square_lambda(5))
+
+# ----- map and filter -----
+numbers = [1, 2, 3, 4, 5]
+
+# map — apply a function to every item in a list
+doubled = list(map(lambda n: n * 2, numbers))
+print(doubled)
+
+# filter — keep only items where function returns True
+evens = list(filter(lambda n: n % 2 == 0, numbers))
+print(evens)
+
+numbers = [1, 2, 3, 4, 5]
+
+# way 1 — for loop
+evens = []
+for n in numbers:
+    if n % 2 == 0:
+        evens.append(n)
+
+# way 2 — list comprehension
+evens = [n for n in numbers if n % 2 == 0]
+
+# way 3 — filter + lambda
+evens = list(filter(lambda n: n % 2 == 0, numbers))
