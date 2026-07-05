@@ -272,3 +272,132 @@ evens = [n for n in numbers if n % 2 == 0]
 
 # way 3 — filter + lambda
 evens = list(filter(lambda n: n % 2 == 0, numbers))
+
+
+# ----- OOP - Classes and Objects -----
+class Dog:
+    def __init__(self, name, breed):
+        self.name = name
+        self.breed = breed
+
+    def bark(self):
+        print(self.name + " says: Woof!")
+
+# creating objects from the class
+dog1 = Dog("Bruno", "Labrador")
+dog2 = Dog("Max", "Poodle")
+
+print(dog1.name)
+print(dog2.name)
+dog1.bark()
+dog2.bark()
+
+#encapsulation-------
+class BankAccount:
+    def __init__(self, owner, balance):
+        self.owner = owner
+        self.__balance = balance    # private variable — double underscore
+
+    def deposit(self, amount):
+        self.__balance += amount
+        print(self.owner + " deposited " + str(amount))
+
+    def withdraw(self, amount):
+        if amount > self.__balance:
+            print("Insufficient funds")
+        else:
+            self.__balance -= amount
+            print(self.owner + " withdrew " + str(amount))
+
+    def get_balance(self):
+        return self.__balance
+
+account = BankAccount("Vaishnavi", 1000)
+account.deposit(500)
+account.withdraw(200)
+print(account.get_balance())
+
+
+# ----- Inheritance -----
+class Animal:
+    def __init__(self, name):
+        self.name = name
+
+    def eat(self):
+        print(self.name + " is eating")
+
+    def sleep(self):
+        print(self.name + " is sleeping")
+
+class Dog(Animal):        # Dog inherits from Animal
+    def bark(self):
+        print(self.name + " says: Woof!")
+
+class Cat(Animal):        # Cat inherits from Animal
+    def meow(self):
+        print(self.name + " says: Meow!")
+
+dog = Dog("Bruno")
+cat = Cat("Whiskers")
+
+dog.eat()       # inherited from Animal
+dog.bark()      # Dog's own method
+cat.sleep()     # inherited from Animal
+cat.meow()      # Cat's own method
+
+# ----- Polymorphism -----
+class Animal:
+    def __init__(self, name):
+        self.name = name
+
+    def speak(self):
+        print(self.name + " makes a sound")
+
+class Dog(Animal):
+    def speak(self):
+        print(self.name + " says: Woof!")
+
+class Cat(Animal):
+    def speak(self):
+        print(self.name + " says: Meow!")
+
+class Cow(Animal):
+    def speak(self):
+        print(self.name + " says: Moo!")
+
+animals = [Dog("Bruno"), Cat("Whiskers"), Cow("Daisy")]
+
+for animal in animals:
+    animal.speak()
+
+    # ----- Abstract Classes -----
+from abc import ABC, abstractmethod
+
+class Shape(ABC):
+    @abstractmethod
+    def area(self):
+        pass
+
+    def describe(self):
+        print("I am a shape with area: " + str(self.area()))
+
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
+
+    def area(self):
+        return 3.14 * self.radius * self.radius
+
+class Rectangle(Shape):
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+
+    def area(self):
+        return self.width * self.height
+
+c = Circle(5)
+r = Rectangle(4, 6)
+
+c.describe()
+r.describe()
