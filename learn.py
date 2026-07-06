@@ -401,3 +401,143 @@ r = Rectangle(4, 6)
 
 c.describe()
 r.describe()
+
+# ----- Exception Handling -----
+# ----- Exception Handling -----
+try:
+    print(10 / 0)
+except ZeroDivisionError:
+    print("Error: You cannot divide by zero")
+
+print("Program continues running...")
+
+
+#try,exceppt,else
+try:
+    number = int("123")      # this works fine
+    print(number)
+except ValueError:
+    print("Error: Invalid number")
+else:
+    print("No errors occurred!")    # runs only if try succeeded
+finally:
+    print("This always runs no matter what")    # runs always, error or not
+
+try:
+    number = int("abc")      # this fails
+    print(number)
+except ValueError:
+    print("Error: Invalid number")
+else:
+    print("No errors occurred!")
+finally:
+    print("This always runs no matter what")
+
+
+# custom exception
+class InvalidAgeError(Exception):
+    pass
+
+def set_age(age):
+    if age < 0 or age > 150:
+        raise InvalidAgeError("Age must be between 0 and 150")
+    print("Age set to: " + str(age))
+
+try:
+    set_age(200)
+except InvalidAgeError as e:
+    print("Caught custom error:", e)
+
+    # ----- File I/O -----
+# writing to a file
+with open("test.txt", "w") as f:
+    f.write("Hello, this is line 1\n")
+    f.write("This is line 2\n")
+    f.write("This is line 3\n")
+
+print("File written successfully")
+
+# reading from a file
+with open("test.txt", "r") as f:
+    content = f.read()
+    print(content)
+
+import json
+
+# ----- JSON File Handling -----
+# writing json to a file
+student = {
+    "name": "Vaishnavi",
+    "age": 20,
+    "grades": [85, 90, 78]
+}
+
+with open("student.json", "w") as f:
+    json.dump(student, f)
+
+print("JSON written successfully")
+
+# reading json from a file
+with open("student.json", "r") as f:
+    loaded = json.load(f)
+
+print(loaded)
+print(loaded["name"])
+print(loaded["grades"])    
+
+import csv
+
+# ----- CSV File Handling -----
+# writing csv
+with open("students.csv", "w", newline="") as f:
+    writer = csv.writer(f)
+    writer.writerow(["Name", "Age", "Grade"])
+    writer.writerow(["Vaishnavi", 20, "A"])
+    writer.writerow(["Rahul", 22, "B"])
+    writer.writerow(["Priya", 21, "A"])
+
+print("CSV written successfully")
+
+# reading csv
+with open("students.csv", "r") as f:
+    reader = csv.reader(f)
+    for row in reader:
+        print(row)
+
+# ----- Decorators -----
+def timer_decorator(func):
+    def wrapper():
+        print("Starting function...")
+        func()
+        print("Function finished!")
+    return wrapper
+
+def greet():
+    print("Hello, Vaishnavi!")
+
+# applying the decorator
+greet = timer_decorator(greet)
+greet()     
+
+
+# ----- Generators -----
+# normal function — creates entire list in memory at once
+def normal_squares(n):
+    result = []
+    for i in range(n):
+        result.append(i * i)
+    return result
+
+# generator function — produces one value at a time
+def generator_squares(n):
+    for i in range(n):
+        yield i * i
+
+# using normal function
+squares_list = normal_squares(5)
+print(squares_list)
+
+# using generator
+squares_gen = generator_squares(5)
+for square in squares_gen:
+    print(square)
